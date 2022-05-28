@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     var flag:Boolean = false
     lateinit var job: Job
     lateinit var en : ImageView
+    lateinit var fly1:Fly
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                 job = GlobalScope.launch(Dispatchers.Main) {
                     while(flag) {
                         delay(10)
+                        binding.mysv.fly1.update()
 
                         var canvas: Canvas = binding.mysv.surfaceHolder.lockCanvas()
                         binding.mysv.drawSomething(canvas)
